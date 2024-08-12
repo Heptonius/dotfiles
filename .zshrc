@@ -1,7 +1,10 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 cheatSh() { curl "cheat.sh/$1";}
+
+# Dotfiles 'config' config - https://www.atlassian.com/git/tutorials/dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Generic aliases
 alias yicf='yarn install --check-files'
@@ -9,24 +12,23 @@ alias cht='cheatSh'
 
 # Interflex specific aliases
 alias cntunnel='ssh -L 54881:localhost:54881 -L 6046:localhost:6046 -L 8443:localhost:8443 interflex-devices-ba'
-alias prunedelete="git fetch -p && for branch in $(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D $branch; done"
 alias cntunnel-viktor='ssh -L 54881:localhost:54881 -L 6046:localhost:6046 -L 8443:localhost:8443 interflex-devhome-remote'
 alias create-vsp-public-symbolinks='echo "rm public \nln -s $(readlink -f ./dist/apps/vsp-public-unauthorized) public\nrm private\nln -s $(readlink -f ./dist/apps/vsp-public-authorized) private"'
 alias create-vsp-public-symbolinks-legacy='echo "rm public \nln -s $(readlink -f ./packages/public-vsp-unauthorized/build) public\nrm private\nln -s $(readlink -f ./packages/public-vsp-authorized/build) private"'
 
-
+# export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/bezdicek/.oh-my-zsh"
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="dracula"
+ZSH_THEME="essembeh"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -72,6 +74,14 @@ ZSH_THEME="dracula"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# zsh-completions
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+	autoload -Uz compinit
+	compinit
+fi
+
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # You can set one of the optional three formats:
@@ -91,9 +101,11 @@ ZSH_THEME="dracula"
 plugins=(
 	git
 	wd
-	zsh-autosuggestions
+	# zsh-autosuggestions
 )
 
+# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -111,11 +123,14 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases

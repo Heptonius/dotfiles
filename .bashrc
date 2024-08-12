@@ -10,3 +10,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 . "$HOME/.cargo/env"
 alias config='/usr/bin/git --git-dir=/Users/bezdicek/.cfg/ --work-tree=/Users/bezdicek'
+alias config='/usr/bin/git --git-dir=/Users/bezdicek/.cfg/ --work-tree=/Users/bezdicek'

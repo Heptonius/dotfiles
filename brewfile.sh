@@ -1,27 +1,24 @@
-# specify directory to install
-cask_args appdir: "/Applications"
-
 # install packages + some apps
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
+brew tap "homebrew/bundle"
+brew tap "homebrew/cask"
+brew tap "homebrew/core"
 
-brew "nvm"
-brew "git"
-brew "zsh"
-brew "zsh-autosuggestions"
-brew "zsh-completions"
-brew "zsh-syntax-highlighting"
+brew install "nvm"
+brew install "git"
+brew install "zsh"
+brew install "zsh-autosuggestions"
+brew install "zsh-completions"
+brew install "zsh-syntax-highlighting"
 
 # Casks
-cask "adobe-acrobat-reader"
-cask "arc"
-cask "bluesnooze"
-cask "firefox"
-cask "google-chrome"
-cask "iterm2"
-cask "obsidian"
-cask "postman"
-cask "postman-agent"
-cask "spotify"
-cask "visual-studio-code"
+brew install  "adobe-acrobat-reader" --cask
+brew install  "arc" --cask
+brew install  "bluesnooze" --cask
+brew install  "firefox" --cask
+brew install  "google-chrome" --cask
+brew install  "iterm2" --cask
+brew install  "obsidian" --cask
+brew install  "postman" --cask
+brew install  "postman-agent" --cask
+brew install  "spotify" --cask
+brew install  "visual-studio-code" --cask
