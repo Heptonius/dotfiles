@@ -6,6 +6,9 @@ cheatSh() { curl "cheat.sh/$1";}
 # Dotfiles 'config' config - https://www.atlassian.com/git/tutorials/dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# vscode open editor shortcut 
+alias c="code"
+
 # Generic aliases
 alias yicf='yarn install --check-files'
 alias cht='cheatSh'
