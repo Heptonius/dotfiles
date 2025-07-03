@@ -5,6 +5,8 @@ brew tap "homebrew/core"
 
 brew install "nvm"
 brew install "git"
+brew install "tree"
+brew install "ripgrep"
 brew install "zsh"
 brew install "zsh-autosuggestions"
 brew install "zsh-completions"
@@ -17,6 +19,7 @@ brew install  "bluesnooze" --cask
 brew install  "firefox" --cask
 brew install  "google-chrome" --cask
 brew install  "iterm2" --cask
+brew install  "kitty" --cask
 brew install  "obsidian" --cask
 brew install  "postman" --cask
 brew install  "postman-agent" --cask
