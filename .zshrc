@@ -113,6 +113,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Enable word-wise cursor movement with Alt+Arrow keys
+bindkey "^[[1;9D" backward-word
+bindkey "^[[1;9C" forward-word
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
